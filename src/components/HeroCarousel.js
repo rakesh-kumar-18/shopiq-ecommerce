@@ -1,4 +1,4 @@
-import CustomCarousel from "./Carousel";
+import Carousel from "./Carousel";
 
 const HeroCarousel = () => {
     const images = [
@@ -7,7 +7,7 @@ const HeroCarousel = () => {
         "/images/banner3.jpg",
     ];
 
-    return <CustomCarousel images={images} />;
+    return <Carousel images={images} />;
 };
 
 export default HeroCarousel;
