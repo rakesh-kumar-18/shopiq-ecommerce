@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const CustomCarousel = ({ images }) => {
+const Carousel = ({ images }) => {
     const [current, setCurrent] = useState(0);
 
     const nextSlide = () => setCurrent((current + 1) % images.length);
@@ -48,4 +48,4 @@ const CustomCarousel = ({ images }) => {
     );
 };
 
-export default CustomCarousel;
+export default Carousel;
