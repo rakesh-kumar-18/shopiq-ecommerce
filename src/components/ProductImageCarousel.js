@@ -16,7 +16,6 @@ const ProductImageCarousel = ({ images }) => {
 
     return (
         <div className="relative w-full overflow-hidden">
-            {/* Carousel Images */}
             <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -34,7 +33,6 @@ const ProductImageCarousel = ({ images }) => {
                 ))}
             </div>
 
-            {/* Navigation Buttons */}
             <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full z-10"
@@ -48,7 +46,6 @@ const ProductImageCarousel = ({ images }) => {
                 &#8594;
             </button>
 
-            {/* Indicators */}
             <div className="absolute bottom-4 w-full flex justify-center space-x-2">
                 {images.map((_, index) => (
                     <span

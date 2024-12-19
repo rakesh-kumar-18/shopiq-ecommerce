@@ -18,7 +18,7 @@ export default function HomePage() {
   // Fetch initial products
   useEffect(() => {
     fetchMoreProducts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Function to fetch more products
@@ -132,7 +132,6 @@ export default function HomePage() {
           </button>
         )}
 
-        {/* All Products Loaded Message */}
         {allLoaded && (
           <p className="text-center mt-4 text-gray-500">No more products to load.</p>
         )}

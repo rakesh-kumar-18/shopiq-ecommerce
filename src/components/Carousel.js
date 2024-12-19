@@ -11,7 +11,6 @@ const Carousel = ({ images }) => {
 
     return (
         <div className="relative w-full overflow-hidden">
-            {/* Slides */}
             <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${current * 100}%)` }}>
                 {images.map((img, index) => (
                     <div key={index} className="w-full flex-shrink-0">
@@ -26,7 +25,6 @@ const Carousel = ({ images }) => {
                 ))}
             </div>
 
-            {/* Controls */}
             <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
@@ -40,7 +38,6 @@ const Carousel = ({ images }) => {
                 &#8594;
             </button>
 
-            {/* Indicators */}
             <div className="absolute bottom-4 flex space-x-2 justify-center w-full">
                 {images.map((_, index) => (
                     <span
