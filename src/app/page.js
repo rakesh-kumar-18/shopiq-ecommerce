@@ -16,7 +16,6 @@ export default function HomePage() {
   // Fetch initial products
   useEffect(() => {
     fetchMoreProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Function to fetch more products
@@ -48,8 +47,8 @@ export default function HomePage() {
     <>
       <HeroCarousel />
       <main className="container mx-auto px-4 my-8">
-        <h1 className="text-2xl font-bold mb-4">Products</h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <h1 className="text-2xl font-bold mb-6">Products</h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {visibleProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -59,7 +58,7 @@ export default function HomePage() {
         {!allLoaded && (
           <button
             onClick={fetchMoreProducts}
-            className="block mx-auto mt-8 bg-blue-600 text-white px-4 py-2 rounded"
+            className="block mx-auto mt-8 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             disabled={loading}
           >
             {loading ? "Loading..." : "Show More"}

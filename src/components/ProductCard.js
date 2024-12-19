@@ -1,21 +1,45 @@
 import Image from "next/image";
-import Link from "next/link";
 
-const ProductCard = ({ product }) => (
-    <div className="border rounded-lg p-4 shadow-md">
-        <Image
-            src={product.thumbnail}
-            alt={product.title}
-            width={100}
-            height={100}
-            className="h-40 w-full object-cover mb-2 rounded"
-        />
-        <h3 className="font-semibold text-lg">{product.title}</h3>
-        <p className="text-gray-600">${product.price}</p>
-        <Link href={`/products/${product.id}`}>
-            <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded">View Details</button>
-        </Link>
-    </div>
-);
+const ProductCard = ({ product }) => {
+    const isOnSale = product.discountPercentage > 0;
+
+    return (
+        <div className="border rounded-lg shadow-md p-4 relative group hover:shadow-lg transition-shadow duration-300">
+            {/* Product Image */}
+            <div className="relative overflow-hidden rounded-md">
+                <Image
+                    src={product.thumbnail}
+                    alt={product.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                {isOnSale && (
+                    <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                        SALE
+                    </span>
+                )}
+            </div>
+
+            {/* Product Details */}
+            <div className="mt-4">
+                <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
+                <div className="flex items-center justify-between mt-2">
+                    {/* Price */}
+                    <div className="flex items-center">
+                        {isOnSale && (
+                            <span className="text-gray-400 line-through mr-2 text-sm">
+                                ${product.price.toFixed(2)}
+                            </span>
+                        )}
+                        <span className="text-lg font-bold text-gray-800">
+                            ${(product.price - (product.price * product.discountPercentage) / 100).toFixed(2)}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default ProductCard;
